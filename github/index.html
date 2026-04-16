@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Oficina de los Recuerdos Prestados | Archivo Emocional Colectivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=EB+Garamond:italic,wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --oficina-bg: #f4f1ea;
+            --oficina-ink: #1a1a1a;
+            --oficina-accent: #d44d2e;
+        }
+        body {
+            background-color: var(--oficina-bg);
+            color: var(--oficina-ink);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .serif-italic { font-family: 'EB Garamond', serif; font-style: italic; }
+        .archive-paper {
+            background-image: radial-gradient(#d1d1d1 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+        .stamp {
+            border: 3px solid var(--oficina-accent);
+            color: var(--oficina-accent);
+            padding: 0.2rem 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            transform: rotate(-12deg);
+            display: inline-block;
+            opacity: 0.8;
+        }
+        .fade-in { animation: fadeIn 0.8s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="archive-paper">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-stone-300 z-50 transition-all duration-300" id="main-nav">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="font-bold tracking-tighter text-xl z-50 relative">OFICINA <span class="serif-italic">de los</span> RECUERDOS</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#proyecto" class="hover:text-orange-700 transition-colors">El Proyecto</a>
+                <a href="#archivo" class="hover:text-orange-700 transition-colors">El Archivo</a>
+                <a href="#depositar" class="hover:text-orange-700 transition-colors">Depositar</a>
+                <a href="#experiencia" class="hover:text-orange-700 transition-colors">La Experiencia</a>
+                <a href="#mapa" class="hover:text-orange-700 transition-colors">Mapa</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden z-50 relative text-black hover:text-orange-700 transition-colors">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menú Móvil -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#f4f1ea] z-40 hidden flex-col pt-24 px-6 opacity-0 transition-opacity duration-300">
+        <a href="#proyecto" class="mobile-link text-3xl font-light py-6 border-b border-stone-300 text-stone-800">El Proyecto</a>
+        <a href="#archivo" class="mobile-link text-3xl font-light py-6 border-b border-stone-300 text-stone-800">El Archivo</a>
+        <a href="#depositar" class="mobile-link text-3xl font-light py-6 border-b border-stone-300 text-stone-800">Depositar</a>
+        <a href="#experiencia" class="mobile-link text-3xl font-light py-6 border-b border-stone-300 text-stone-800">La Experiencia</a>
+        <a href="#mapa" class="mobile-link text-3xl font-light py-6 border-b border-stone-300 text-stone-800">Mapa</a>
+    </div>
+
+    <!-- Hero Section con Vídeo -->
+    <header class="relative pt-32 pb-20 px-6 min-h-[90vh] flex flex-col items-center justify-center text-center overflow-hidden">
+        
+        <!-- Video Background -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="https://i.imgur.com/64tM4qJ.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Filtro Oscuro (Overlay) -->
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+        <!-- Contenido -->
+        <div class="relative z-20 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-light leading-tight mb-8 text-[#f4f1ea] fade-in">
+                Tu memoria es ahora <br>
+                <span class="serif-italic font-medium text-white">nuestro archivo colectivo.</span>
+            </h1>
+            <p class="text-xl text-stone-200 mb-10 font-light leading-relaxed max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                No somos una base de datos. Somos un refugio para lo que no debe olvidarse. Adopta un relato ajeno o cede el tuyo para que otros lo habiten.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in" style="animation-delay: 0.4s;">
+                <a href="#archivo" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-stone-200 transition-all">Explorar Archivo</a>
+                <a href="#depositar" class="border border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black transition-all backdrop-blur-sm bg-black/20">Ceder un Recuerdo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sobre el Proyecto -->
+    <section id="proyecto" class="py-24 bg-white border-b border-stone-200 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">El Proyecto</h2>
+                <p class="serif-italic text-xl text-stone-500">Un archivo vivo de la ciudad y sus habitantes.</p>
+            </div>
+            
+            <div class="prose prose-lg prose-stone max-w-none text-stone-600 leading-relaxed font-light">
+                <p class="text-2xl text-stone-800 mb-8 leading-normal">
+                    La Oficina de los Recuerdos Prestados es una experiencia artístico-social basada en la memoria, la empatía y la participación ciudadana. 
+                    Creemos que las historias cotidianas son el verdadero patrimonio de una ciudad.
+                </p>
+                <p class="mb-10">
+                    Este proyecto nace con la idea de que las personas puedan compartir aquellos recuerdos personales que ya no desean "cargar" en soledad. 
+                    Al depositarlos aquí, permiten que otros usuarios los experimenten, los lean y los reinterpreten desde su propia perspectiva. 
+                    No ofrecemos un intercambio literal, sino un espacio seguro para el encuentro a través de relatos anónimos y objetos simbólicos.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-[#f4f1ea] p-8 rounded-xl border border-stone-200">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mb-4 text-orange-700 shadow-sm">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-stone-900 mb-2">Impacto Social</h4>
+                        <p class="text-sm">Fomentamos la empatía intergeneracional y combatimos la desconexión social en el entorno urbano.</p>
+                    </div>
+                    <div class="bg-[#f4f1ea] p-8 rounded-xl border border-stone-200">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mb-4 text-orange-700 shadow-sm">
+                            <i data-lucide="landmark" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-stone-900 mb-2">Valor Cultural</h4>
+                        <p class="text-sm">Documentamos y preservamos las memorias cotidianas e historias íntimas vinculadas a la ciudad de Santander.</p>
+                    </div>
+                    <div class="bg-[#f4f1ea] p-8 rounded-xl border border-stone-200">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center mb-4 text-orange-700 shadow-sm">
+                            <i data-lucide="network" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="font-bold text-stone-900 mb-2">Narrativa Transmedia</h4>
+                        <p class="text-sm">Exploramos nuevas formas de contar historias distribuidas en múltiples plataformas a través de la participación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plataformas Transmedia Grid (La Experiencia) -->
+    <section id="experiencia" class="py-20 bg-[#f4f1ea] border-b border-stone-200 relative z-30">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Nuestros Canales</h2>
+                <p class="serif-italic text-lg text-stone-500">Cómo interactuar con el archivo.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4 bg-white p-8 border border-stone-200 shadow-sm">
+                    <div class="w-12 h-12 bg-[#f4f1ea] rounded-full flex items-center justify-center text-stone-800">
+                        <!-- Icono arreglado -->
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold italic">La Puerta Digital</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Nuestra oficina de avisos en redes. Relatos breves, fragmentos visuales y la llamada a la participación diaria a través de nuestra comunidad online.</p>
+                </div>
+                
+                <div class="space-y-4 bg-white p-8 border border-stone-200 shadow-sm">
+                    <div class="w-12 h-12 bg-[#f4f1ea] rounded-full flex items-center justify-center text-stone-800">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold italic">La Instalación Física</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed mb-2">Vive la experiencia inmersiva en Santander. Nuestro recorrido guiado incluye:</p>
+                    <ul class="text-stone-600 text-sm space-y-1 ml-4 list-disc marker:text-orange-700">
+                        <li>Recepción y bienvenida.</li>
+                        <li>Sala inmersiva de recuerdos.</li>
+                        <li>Sala de archivo físico interactivo.</li>
+                        <li>Buzón de registro anónimo.</li>
+                        <li>Salida y descompresión.</li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4 bg-white p-8 border border-stone-200 shadow-sm">
+                    <div class="w-12 h-12 bg-[#f4f1ea] rounded-full flex items-center justify-center text-stone-800">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold italic">Memoria Permanente</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Este portal centraliza el mapa emocional. Permite leer y responder a los recuerdos de otros de manera anónima desde cualquier lugar del mundo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Archivo (Feed de recuerdos) -->
+    <section id="archivo" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="mb-16">
+            <h2 class="text-4xl font-bold mb-4">Relatos Disponibles</h2>
+            <p class="serif-italic text-xl text-stone-500">Lee y responde a los recuerdos que otros han dejado atrás.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Card Recuerdo 1 -->
+            <div class="bg-white p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xs font-mono text-stone-400 font-bold tracking-widest expediente-id">EXPEDIENTE #021</span>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-6 serif-italic text-stone-800">"Un desconocido me ayudó a llorar en un tren nocturno. No hablamos, solo me pasó un pañuelo y se bajó en la siguiente estación."</p>
+                </div>
+                <div class="pt-6 border-t border-stone-100 flex justify-between items-center mt-auto">
+                    <button class="text-xs uppercase font-bold tracking-widest border-b border-black pb-1 hover:text-orange-700 hover:border-orange-700 transition-colors btn-responder" data-expediente="EXPEDIENTE #021">Responder</button>
+                </div>
+            </div>
+
+            <!-- Card Recuerdo 2 -->
+            <div class="bg-white p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xs font-mono text-stone-400 font-bold tracking-widest expediente-id">EXPEDIENTE #084</span>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-6 serif-italic text-stone-800">"El olor del pan recién hecho me recuerda a una casa que ya no existe, en un pueblo cuyo nombre he preferido olvidar."</p>
+                </div>
+                <div class="pt-6 border-t border-stone-100 flex justify-between items-center mt-auto">
+                    <button class="text-xs uppercase font-bold tracking-widest border-b border-black pb-1 hover:text-orange-700 hover:border-orange-700 transition-colors btn-responder" data-expediente="EXPEDIENTE #084">Responder</button>
+                </div>
+            </div>
+
+            <!-- Card Recuerdo 3 -->
+            <div class="bg-white p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xs font-mono text-stone-400 font-bold tracking-widest expediente-id">EXPEDIENTE #112</span>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-6 serif-italic text-stone-800">"Encontré una llave en mi bolsillo. No sé qué abre, pero cada vez que la toco, siento que estoy a punto de recordar algo importante."</p>
+                </div>
+                <div class="pt-6 border-t border-stone-100 flex justify-between items-center mt-auto">
+                    <button class="text-xs uppercase font-bold tracking-widest border-b border-black pb-1 hover:text-orange-700 hover:border-orange-700 transition-colors btn-responder" data-expediente="EXPEDIENTE #112">Responder</button>
+                </div>
+            </div>
+
+            <!-- Card Recuerdo 4 (Nuevo) -->
+            <div class="bg-white p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xs font-mono text-stone-400 font-bold tracking-widest expediente-id">EXPEDIENTE #156</span>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-6 serif-italic text-stone-800">"Guardé el último mensaje de voz de mi abuela durante tres años. Ayer, por error, borré todos los chats. Entré en pánico, pero luego sentí un extraño alivio."</p>
+                </div>
+                <div class="pt-6 border-t border-stone-100 flex justify-between items-center mt-auto">
+                    <button class="text-xs uppercase font-bold tracking-widest border-b border-black pb-1 hover:text-orange-700 hover:border-orange-700 transition-colors btn-responder" data-expediente="EXPEDIENTE #156">Responder</button>
+                </div>
+            </div>
+
+            <!-- Card Recuerdo 5 (Nuevo) -->
+            <div class="bg-white p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xs font-mono text-stone-400 font-bold tracking-widest expediente-id">EXPEDIENTE #201</span>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-6 serif-italic text-stone-800">"De pequeña creía que si pisaba las líneas de las baldosas de la plaza Porticada ocurriría una desgracia. Hoy tengo 40 años y sigo evitando pisarlas."</p>
+                </div>
+                <div class="pt-6 border-t border-stone-100 flex justify-between items-center mt-auto">
+                    <button class="text-xs uppercase font-bold tracking-widest border-b border-black pb-1 hover:text-orange-700 hover:border-orange-700 transition-colors btn-responder" data-expediente="EXPEDIENTE #201">Responder</button>
+                </div>
+            </div>
+
+            <!-- Card Recuerdo 6 (Nuevo) -->
+            <div class="bg-white p-8 border border-stone-200 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="mb-6">
+                        <span class="text-xs font-mono text-stone-400 font-bold tracking-widest expediente-id">EXPEDIENTE #344</span>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-6 serif-italic text-stone-800">"Dejamos nuestras iniciales talladas en un banco del faro hace diez años. Volví ayer. El banco ha sido reemplazado por uno de metal. Supongo que es una metáfora."</p>
+                </div>
+                <div class="pt-6 border-t border-stone-100 flex justify-between items-center mt-auto">
+                    <button class="text-xs uppercase font-bold tracking-widest border-b border-black pb-1 hover:text-orange-700 hover:border-orange-700 transition-colors btn-responder" data-expediente="EXPEDIENTE #344">Responder</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje Final -->
+        <div class="text-center border-t border-stone-200 pt-8 mt-8">
+            <p class="text-stone-500 text-sm tracking-widest uppercase font-bold inline-flex items-center gap-2">
+                <i data-lucide="building-2" class="w-4 h-4"></i>
+                Para descubrir más relatos, visita nuestra oficina física
+            </p>
+        </div>
+    </section>
+
+    <!-- Mapa Emocional (Visual Representation) -->
+    <section id="mapa" class="py-24 bg-white border-y border-stone-200 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Mapa de la Memoria</h2>
+                <p class="serif-italic text-xl text-stone-500 italic">Donde ocurrieron nuestras historias en Santander.</p>
+            </div>
+            
+            <!-- Contenedor del Mapa -->
+            <div class="aspect-[4/3] md:aspect-[21/9] bg-stone-200 rounded-3xl relative border border-stone-300 shadow-inner" style="background-image: url('https://i.imgur.com/QXLUNJS.jpeg'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 bg-black/10 transition-colors hover:bg-black/20 duration-500 rounded-3xl pointer-events-none"></div>
+                
+                <!-- Pin 1 -->
+                <div class="absolute top-[40%] left-[55%] z-20">
+                    <div class="w-6 h-6 bg-orange-600/50 rounded-full animate-ping absolute -inset-1"></div>
+                    <button class="w-4 h-4 bg-orange-600 rounded-full relative border-2 border-white shadow-md pin-btn"></button>
+                    
+                    <div class="pin-popup absolute bottom-8 left-1/2 -translate-x-1/2 w-72 bg-white p-5 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+                        <p class="font-bold mb-1 text-stone-800 text-sm">Paseo de Pereda</p>
+                        <p class="text-stone-500 mb-4 text-xs italic leading-relaxed">"Aquí solíamos sentarnos a mirar la bahía. Hoy he vuelto solo y el mar parecía distinto. Aún guardo la entrada del ferry en mi cartera."</p>
+                        <button class="btn-responder bg-stone-900 text-white px-4 py-2.5 rounded-full w-full font-bold hover:bg-orange-600 transition-colors text-xs uppercase tracking-widest" data-expediente="EXPEDIENTE #091">Responder</button>
+                        <!-- Triángulo del bocadillo -->
+                        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45"></div>
+                    </div>
+                </div>
+
+                <!-- Pin 2 -->
+                <div class="absolute top-[55%] left-[30%] z-20">
+                    <div class="w-6 h-6 bg-orange-600/50 rounded-full animate-ping absolute -inset-1" style="animation-delay: 0.3s;"></div>
+                    <button class="w-4 h-4 bg-orange-600 rounded-full relative border-2 border-white shadow-md pin-btn"></button>
+                    
+                    <div class="pin-popup absolute bottom-8 left-1/2 -translate-x-1/2 w-72 bg-white p-5 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+                        <p class="font-bold mb-1 text-stone-800 text-sm">Estación de Tren</p>
+                        <p class="text-stone-500 mb-4 text-xs italic leading-relaxed">"Perdí el tren por quedarme escuchando a un músico callejero cerca de la plaza. Fue la mejor decisión de mi vida porque ahí la conocí."</p>
+                        <button class="btn-responder bg-stone-900 text-white px-4 py-2.5 rounded-full w-full font-bold hover:bg-orange-600 transition-colors text-xs uppercase tracking-widest" data-expediente="EXPEDIENTE #044">Responder</button>
+                        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45"></div>
+                    </div>
+                </div>
+
+                <!-- Pin 3 -->
+                <div class="absolute top-[30%] left-[75%] z-20">
+                    <div class="w-6 h-6 bg-orange-600/50 rounded-full animate-ping absolute -inset-1" style="animation-delay: 0.7s;"></div>
+                    <button class="w-4 h-4 bg-orange-600 rounded-full relative border-2 border-white shadow-md pin-btn"></button>
+                    
+                    <div class="pin-popup absolute bottom-8 left-1/2 -translate-x-1/2 w-72 bg-white p-5 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+                        <p class="font-bold mb-1 text-stone-800 text-sm">El Sardinero</p>
+                        <p class="text-stone-500 mb-4 text-xs italic leading-relaxed">"El agua estaba helada esa noche de San Juan, pero decidimos tirarnos igual con la ropa puesta. Nadie nos vio, fue nuestro pequeño acto de rebeldía."</p>
+                        <button class="btn-responder bg-stone-900 text-white px-4 py-2.5 rounded-full w-full font-bold hover:bg-orange-600 transition-colors text-xs uppercase tracking-widest" data-expediente="EXPEDIENTE #128">Responder</button>
+                        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45"></div>
+                    </div>
+                </div>
+                
+                <p class="absolute bottom-4 right-6 text-stone-500 font-mono text-[10px] sm:text-xs uppercase tracking-widest z-10 bg-white/90 px-3 py-1.5 rounded-md shadow-sm">[ Mapa Emocional de Santander ]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Interactiva: Depositar -->
+    <section id="depositar" class="py-24 bg-stone-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-orange-700/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-stone-800/40 rounded-full blur-3xl -ml-48 -mb-48 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-light mb-6">¿Cederías un recuerdo?</h2>
+            <p class="text-stone-400 mb-12 text-lg max-w-2xl">Al depositarlo, liberas su peso. Otros lo cuidarán, lo leerán o lo transformarán en algo nuevo. El anonimato es total.</p>
+            
+            <form id="form-depositar" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-widest font-bold text-stone-500">Título Emocional</label>
+                        <input id="form-titulo" type="text" placeholder="Ej: Un verano infinito" class="w-full bg-stone-800 border border-stone-700 p-4 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all text-white placeholder-stone-500">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-widest font-bold text-stone-500">Categoría</label>
+                        <select class="w-full bg-stone-800 border border-stone-700 p-4 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all text-white">
+                            <option>Secreto</option>
+                            <option>Pérdida</option>
+                            <option>Alegría inesperada</option>
+                            <option>Primer encuentro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs uppercase tracking-widest font-bold text-stone-500">Tu Recuerdo (Máx 300 caracteres)</label>
+                    <textarea id="form-texto" rows="4" class="w-full bg-stone-800 border border-stone-700 p-4 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all text-white placeholder-stone-500 resize-none" placeholder="Escribe aquí aquello que quieres que otros conserven..."></textarea>
+                </div>
+                <button type="button" id="btn-depositar" class="bg-white text-black px-10 py-4 rounded-full font-bold hover:bg-orange-600 hover:text-white transition-all w-full md:w-auto shadow-lg hover:shadow-orange-600/20">Sellar y Enviar al Archivo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-stone-300 bg-white">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <div class="font-bold tracking-tighter text-2xl mb-6">OFICINA <span class="serif-italic text-stone-500">de los</span> RECUERDOS</div>
+                <p class="text-stone-500 max-w-sm text-sm leading-relaxed">Un proyecto de New Media basado en la cultura participativa, la inteligencia colectiva y la narrativa distribuida. No somos dueños de las historias, solo sus custodios temporales.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-xs uppercase tracking-widest mb-6 text-stone-800">Plataformas</h4>
+                <ul class="text-sm space-y-4 text-stone-500">
+                    <li><a href="#" class="hover:text-orange-700 transition-colors">Instagram</a></li>
+                    <li><a href="#" class="hover:text-orange-700 transition-colors">YouTube (Documental)</a></li>
+                    <li><a href="#" class="hover:text-orange-700 transition-colors">Sede Física</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xs uppercase tracking-widest mb-6 text-stone-800">Legal / Ética</h4>
+                <ul class="text-sm space-y-4 text-stone-500">
+                    <li><a href="#" class="hover:text-orange-700 transition-colors">Privacidad Anónima</a></li>
+                    <li><a href="#" class="hover:text-orange-700 transition-colors">Uso Artístico</a></li>
+                    <li><a href="#" class="hover:text-orange-700 transition-colors">Créditos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 mt-20 pt-8 border-t border-stone-100 text-[10px] text-stone-400 uppercase tracking-widest text-center">
+            &copy; 2024 Archivo Emocional Ciudadano. Algunos recuerdos caducan, otros son eternos.
+        </div>
+    </footer>
+
+    <!-- Ventana Modal de Sistema (Alertas) -->
+    <div id="modal-sistema" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex items-center justify-center backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-[#f4f1ea] p-8 max-w-md w-full mx-4 rounded-xl shadow-2xl transform scale-95 transition-transform duration-300 relative overflow-hidden" id="modal-content">
+            
+            <div class="absolute -top-10 -right-10 opacity-5">
+                <i data-lucide="stamp" class="w-48 h-48"></i>
+            </div>
+
+            <div class="relative z-10">
+                <div id="modal-icon" class="w-12 h-12 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mb-6">
+                    <i data-lucide="check" class="w-6 h-6"></i>
+                </div>
+                
+                <h3 id="modal-title" class="text-2xl font-bold mb-3 text-stone-800">Título</h3>
+                <p id="modal-body" class="text-stone-600 mb-8 leading-relaxed text-sm serif-italic">Mensaje del modal</p>
+                
+                <button id="modal-close" class="bg-stone-900 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition-all w-full shadow-lg text-sm uppercase tracking-widest">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Modal Específica para Responder -->
+    <div id="modal-responder" class="fixed inset-0 bg-stone-900/80 z-[100] hidden flex items-center justify-center backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-[#f4f1ea] p-8 max-w-md w-full mx-4 rounded-xl shadow-2xl transform scale-95 transition-transform duration-300 relative" id="modal-responder-content">
+            <div class="relative z-10">
+                <h3 id="modal-responder-title" class="text-2xl font-bold mb-3 text-stone-800">Responder al Expediente</h3>
+                <p class="text-stone-600 mb-6 text-sm">Tu mensaje será entregado de forma anónima a la persona que dejó este recuerdo.</p>
+                
+                <textarea id="responder-texto" rows="5" class="w-full bg-white border border-stone-300 p-4 rounded-lg focus:outline-none focus:border-orange-500 mb-6 resize-none shadow-inner" placeholder="Escribe aquí tu respuesta..."></textarea>
+                
+                <div class="flex gap-4">
+                    <button id="modal-responder-close" class="border border-stone-300 text-stone-600 px-6 py-3 rounded-full font-bold hover:bg-stone-200 transition-all w-1/2 text-xs uppercase tracking-widest">
+                        Cancelar
+                    </button>
+                    <button id="modal-responder-submit" class="bg-stone-900 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition-all w-1/2 shadow-lg text-xs uppercase tracking-widest">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función segura para inicializar iconos
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.warn('Los iconos no han podido cargar a tiempo.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initIcons);
+
+        /* --- SISTEMA DE MODALES DE ALERTA --- */
+        const modal = document.getElementById('modal-sistema');
+        const modalContent = document.getElementById('modal-content');
+        
+        function abrirModal(titulo, mensaje, icono = 'check') {
+            document.getElementById('modal-title').textContent = titulo;
+            document.getElementById('modal-body').textContent = mensaje;
+            
+            const iconContainer = document.getElementById('modal-icon');
+            iconContainer.innerHTML = `<i data-lucide="${icono}" class="w-6 h-6"></i>`;
+            initIcons();
+
+            modal.classList.remove('hidden');
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('scale-95');
+        }
+
+        document.getElementById('modal-close').addEventListener('click', () => {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        });
+
+        /* --- SISTEMA DE MODAL RESPONDER --- */
+        const modalResponder = document.getElementById('modal-responder');
+        const modalResponderContent = document.getElementById('modal-responder-content');
+
+        function abrirModalResponder(expedienteId) {
+            document.getElementById('modal-responder-title').textContent = `Responder a ${expedienteId}`;
+            document.getElementById('responder-texto').value = ''; 
+            
+            modalResponder.classList.remove('hidden');
+            void modalResponder.offsetWidth;
+            modalResponder.classList.remove('opacity-0');
+            modalResponderContent.classList.remove('scale-95');
+        }
+
+        function cerrarModalResponder() {
+            modalResponder.classList.add('opacity-0');
+            modalResponderContent.classList.add('scale-95');
+            setTimeout(() => modalResponder.classList.add('hidden'), 300);
+        }
+
+        document.getElementById('modal-responder-close').addEventListener('click', cerrarModalResponder);
+        
+        document.getElementById('modal-responder-submit').addEventListener('click', () => {
+            const texto = document.getElementById('responder-texto').value.trim();
+            if (!texto) {
+                alert("Por favor, escribe un mensaje antes de enviarlo.");
+                return;
+            }
+            cerrarModalResponder();
+            setTimeout(() => {
+                abrirModal("Mensaje Enviado", "Tu respuesta ha sido procesada y depositada en el buzón de este expediente. Gracias por participar.", "send");
+            }, 300);
+        });
+
+        // Escuchar clics en todos los botones "Responder" (tanto en cartas como en el mapa)
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.btn-responder');
+            if (btn) {
+                e.preventDefault();
+                const expedienteId = btn.getAttribute('data-expediente');
+                abrirModalResponder(expedienteId);
+            }
+        });
+
+
+        /* --- LÓGICA DEL MAPA INTERACTIVO --- */
+        document.querySelectorAll('.pin-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                
+                // Cerrar todos los popups abiertos primero
+                document.querySelectorAll('.pin-popup').forEach(p => {
+                    p.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    p.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                });
+                
+                // Abrir el popup correspondiente al pin clicado
+                const popup = btn.nextElementSibling;
+                popup.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                popup.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            });
+        });
+
+        // Cerrar popups del mapa al clicar fuera de ellos
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.pin-popup').forEach(p => {
+                p.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                p.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            });
+        });
+
+        // Evitar que al clicar dentro del popup se cierre a sí mismo
+        document.querySelectorAll('.pin-popup').forEach(popup => {
+            popup.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        /* --- LÓGICA DEL FORMULARIO DE DEPOSITAR --- */
+        document.getElementById('btn-depositar').addEventListener('click', () => {
+            const titulo = document.getElementById('form-titulo').value.trim();
+            const texto = document.getElementById('form-texto').value.trim();
+
+            if(!titulo || !texto) {
+                abrirModal('Expediente Incompleto', 'Por favor, no puedes dejar un recuerdo vacío. Rellena el título y el contenido de tu relato.', 'alert-circle');
+                return;
+            }
+
+            abrirModal('Recuerdo Archivador', `"${titulo}" ha sido ingresado en nuestro sistema. Ya no tienes que cargar con el peso de este recuerdo. Gracias por confiar en el Archivo Colectivo.`, 'archive');
+            document.getElementById('form-depositar').reset();
+        });
+
+
+        /* --- MENÚ MÓVIL --- */
+        const btnMenu = document.getElementById('mobile-menu-btn');
+        const menuMovil = document.getElementById('mobile-menu');
+        let menuAbierto = false;
+
+        function toggleMenu() {
+            menuAbierto = !menuAbierto;
+            if(menuAbierto) {
+                menuMovil.classList.remove('hidden');
+                void menuMovil.offsetWidth;
+                menuMovil.classList.remove('opacity-0');
+                btnMenu.innerHTML = '<i data-lucide="x"></i>';
+                btnMenu.classList.add('fixed', 'right-6', 'top-5'); 
+            } else {
+                menuMovil.classList.add('opacity-0');
+                setTimeout(() => {
+                    menuMovil.classList.add('hidden');
+                    btnMenu.classList.remove('fixed', 'right-6', 'top-5');
+                }, 300);
+                btnMenu.innerHTML = '<i data-lucide="menu"></i>';
+            }
+            initIcons();
+        }
+
+        btnMenu.addEventListener('click', toggleMenu);
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        /* --- EFECTOS VISUALES --- */
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'shadow-sm');
+                nav.classList.remove('bg-white/80', 'backdrop-blur-md');
+            } else {
+                nav.classList.remove('bg-white/95', 'shadow-sm');
+                nav.classList.add('bg-white/80', 'backdrop-blur-md');
+            }
+        });
+    </script>
+</body>
+</html>
